@@ -59,7 +59,7 @@ server <- function(input, output, session) {
 
 # --- 4. Envolver la UI con el login ---
 # 'secure_app' añade la pantalla de login a nuestra 'ui'
-# Opcional: podemos traducir los campos de login
+# Opcional: podemos traducir los campos de login  
 ui_con_login <- secure_app(
   ui,
   language = "es"
