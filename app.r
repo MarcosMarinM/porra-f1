@@ -425,5 +425,25 @@ server <- function(input, output, session) {
   `%||%` <- function(x, y) if (is.null(x) || is.na(x)) y else x
 }
 
+# ==============================================================================
+# 6. LANZAR APP
+# ==============================================================================
+
+# 1. Definir la UI segura usando el idioma base "es"
 ui_secure <- secure_app(ui, language = "es")
+
+# 2. "Parchear" las traducciones con tus textos personalizados
+# Esta función sobrescribe los textos por defecto
+shinymanager::set_labels(
+  language = "es",
+  "Please authenticate" = "🏁 IDENTIFÍCATE",
+  "Username" = "Código de piloto",
+  "Password" = "Contraseña",
+  "Login" = "🚦 SALIR A PISTA",
+  "Logout" = "Entrar al box",
+  "Incorrect user or password" = "❌ Error: credenciales no válidas",
+  "User not authorized" = "⛔ Acceso denegado"
+)
+
+# 3. Lanzar el servidor
 shinyApp(ui_secure, server)
